@@ -1,0 +1,26 @@
+
+gcd.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <gcd>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	89 7d fc             	mov    %edi,-0x4(%rbp)
+   7:	89 75 f8             	mov    %esi,-0x8(%rbp)
+   a:	eb 16                	jmp    22 <gcd+0x22>
+   c:	8b 45 fc             	mov    -0x4(%rbp),%eax
+   f:	3b 45 f8             	cmp    -0x8(%rbp),%eax
+  12:	7e 08                	jle    1c <gcd+0x1c>
+  14:	8b 45 f8             	mov    -0x8(%rbp),%eax
+  17:	29 45 fc             	sub    %eax,-0x4(%rbp)
+  1a:	eb 06                	jmp    22 <gcd+0x22>
+  1c:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  1f:	29 45 f8             	sub    %eax,-0x8(%rbp)
+  22:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  25:	3b 45 f8             	cmp    -0x8(%rbp),%eax
+  28:	75 e2                	jne    c <gcd+0xc>
+  2a:	8b 45 fc             	mov    -0x4(%rbp),%eax
+  2d:	5d                   	pop    %rbp
+  2e:	c3                   	retq   

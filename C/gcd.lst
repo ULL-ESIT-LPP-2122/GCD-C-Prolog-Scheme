@@ -1,0 +1,64 @@
+GAS LISTING /tmp/ccVl5IrP.s 			page 1
+
+
+   1              		.file	"gcd.c"
+   2              		.text
+   3              	.Ltext0:
+   4              		.globl	gcd
+   6              	gcd:
+   7              	.LFB0:
+   8              		.file 1 "gcd.c"
+   1:gcd.c         **** int gcd(int a, int b) {
+   9              		.loc 1 1 0
+  10              		.cfi_startproc
+  11 0000 55       		pushq	%rbp
+  12              		.cfi_def_cfa_offset 16
+  13              		.cfi_offset 6, -16
+  14 0001 4889E5   		movq	%rsp, %rbp
+  15              		.cfi_def_cfa_register 6
+  16 0004 897DFC   		movl	%edi, -4(%rbp)
+  17 0007 8975F8   		movl	%esi, -8(%rbp)
+   2:gcd.c         ****   while (a != b) {
+  18              		.loc 1 2 0
+  19 000a EB16     		jmp	.L2
+  20              	.L4:
+   3:gcd.c         ****     if (a > b) a = a - b;
+  21              		.loc 1 3 0
+  22 000c 8B45FC   		movl	-4(%rbp), %eax
+  23 000f 3B45F8   		cmpl	-8(%rbp), %eax
+  24 0012 7E08     		jle	.L3
+  25              		.loc 1 3 0 is_stmt 0 discriminator 1
+  26 0014 8B45F8   		movl	-8(%rbp), %eax
+  27 0017 2945FC   		subl	%eax, -4(%rbp)
+  28 001a EB06     		jmp	.L2
+  29              	.L3:
+   4:gcd.c         ****     else b = b - a;
+  30              		.loc 1 4 0 is_stmt 1
+  31 001c 8B45FC   		movl	-4(%rbp), %eax
+  32 001f 2945F8   		subl	%eax, -8(%rbp)
+  33              	.L2:
+   2:gcd.c         ****   while (a != b) {
+  34              		.loc 1 2 0 discriminator 1
+  35 0022 8B45FC   		movl	-4(%rbp), %eax
+  36 0025 3B45F8   		cmpl	-8(%rbp), %eax
+  37 0028 75E2     		jne	.L4
+   5:gcd.c         ****   }
+   6:gcd.c         ****   return a;
+  38              		.loc 1 6 0
+  39 002a 8B45FC   		movl	-4(%rbp), %eax
+   7:gcd.c         **** }...
+  40              		.loc 1 7 0
+  41 002d 5D       		popq	%rbp
+  42              		.cfi_def_cfa 7, 8
+  43 002e C3       		ret
+  44              		.cfi_endproc
+  45              	.LFE0:
+  47              	.Letext0:
+GAS LISTING /tmp/ccVl5IrP.s 			page 2
+
+
+DEFINED SYMBOLS
+                            *ABS*:0000000000000000 gcd.c
+     /tmp/ccVl5IrP.s:6      .text:0000000000000000 gcd
+
+NO UNDEFINED SYMBOLS
